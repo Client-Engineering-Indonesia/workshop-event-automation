@@ -1,0 +1,242 @@
+[
+  {
+    "id": 1,
+    "title": "Cashback Belanja Online",
+    "description": "Dapatkan cashback 10% untuk semua transaksi e-commerce menggunakan kartu debit.",
+    "valid_from": "2025-06-01",
+    "valid_to": "2025-06-30",
+    "category": "Cashback"
+  },
+  {
+    "id": 2,
+    "title": "Promo Cicilan 0%",
+    "description": "Nikmati cicilan 0% hingga 12 bulan untuk pembelian di merchant elektronik.",
+    "valid_from": "2025-06-01",
+    "valid_to": "2025-07-31",
+    "category": "Cicilan"
+  },
+  {
+    "id": 3,
+    "title": "Gratis Biaya Admin Tabungan",
+    "description": "Buka rekening baru dan nikmati gratis biaya admin selama 6 bulan.",
+    "valid_from": "2025-06-10",
+    "valid_to": "2025-12-31",
+    "category": "Tabungan"
+  },
+  {
+    "id": 4,
+    "title": "Diskon Hotel 20%",
+    "description": "Gunakan kartu kredit untuk pemesanan hotel dan dapatkan diskon 20%.",
+    "valid_from": "2025-06-01",
+    "valid_to": "2025-06-30",
+    "category": "Travel"
+  },
+  {
+    "id": 5,
+    "title": "Bunga KPR Rendah",
+    "description": "Dapatkan bunga KPR mulai dari 3,5% fixed untuk 3 tahun.",
+    "valid_from": "2025-05-01",
+    "valid_to": "2025-07-31",
+    "category": "KPR"
+  },
+  {
+    "id": 6,
+    "title": "Referral Berhadiah",
+    "description": "Ajak teman buka tabungan dan dapatkan saldo Rp100.000.",
+    "valid_from": "2025-06-05",
+    "valid_to": "2025-07-15",
+    "category": "Referral"
+  },
+  {
+    "id": 7,
+    "title": "Bayar Tagihan Dapat Poin",
+    "description": "Bayar listrik, air, dan internet lewat mobile banking dan kumpulkan poin.",
+    "valid_from": "2025-06-01",
+    "valid_to": "2025-08-31",
+    "category": "Loyalty"
+  },
+  {
+    "id": 8,
+    "title": "Diskon Belanja Minimarket",
+    "description": "Diskon Rp20.000 setiap belanja Rp150.000 di Alfamart menggunakan QRIS.",
+    "valid_from": "2025-06-10",
+    "valid_to": "2025-06-30",
+    "category": "Diskon"
+  },
+  {
+    "id": 9,
+    "title": "Gratis Ongkir",
+    "description": "Gunakan debit online untuk belanja di Tokopedia dan nikmati gratis ongkir.",
+    "valid_from": "2025-06-01",
+    "valid_to": "2025-07-01",
+    "category": "Online"
+  },
+  {
+    "id": 10,
+    "title": "Top Up eWallet Bonus",
+    "description": "Top up GoPay atau OVO dari mobile banking dan dapatkan cashback 5%.",
+    "valid_from": "2025-06-01",
+    "valid_to": "2025-06-30",
+    "category": "eWallet"
+  },
+  {
+    "id": 11,
+    "title": "Undian Berhadiah",
+    "description": "Setiap transaksi Rp100.000 berkesempatan memenangkan motor listrik.",
+    "valid_from": "2025-06-01",
+    "valid_to": "2025-08-31",
+    "category": "Undian"
+  },
+  {
+    "id": 12,
+    "title": "Tarik Tunai Gratis",
+    "description": "Tarik tunai di ATM Bersama tanpa biaya untuk kartu debit bank kami.",
+    "valid_from": "2025-06-01",
+    "valid_to": "2025-12-31",
+    "category": "ATM"
+  },
+  {
+    "id": 13,
+    "title": "Diskon Tiket Bioskop",
+    "description": "Bayar dengan kartu debit dan nikmati diskon 50% di XXI setiap Sabtu.",
+    "valid_from": "2025-06-01",
+    "valid_to": "2025-06-30",
+    "category": "Hiburan"
+  },
+  {
+    "id": 14,
+    "title": "Tabungan Berjangka Bonus Bunga",
+    "description": "Buka tabungan berjangka dan dapatkan bunga tambahan 1%.",
+    "valid_from": "2025-06-01",
+    "valid_to": "2025-07-31",
+    "category": "Investasi"
+  },
+  {
+    "id": 15,
+    "title": "Flash Sale Voucher",
+    "description": "Transaksi tercepat tiap jam 12:00 dapat voucher belanja Rp50.000.",
+    "valid_from": "2025-06-10",
+    "valid_to": "2025-06-15",
+    "category": "Flash Sale"
+  },
+  {
+    "id": 16,
+    "title": "Bonus Buka Deposito",
+    "description": "Buka deposito minimal Rp10 juta dan dapatkan bonus e-voucher Rp100.000.",
+    "valid_from": "2025-06-15",
+    "valid_to": "2025-07-31",
+    "category": "Deposito"
+  },
+  {
+    "id": 17,
+    "title": "Promo Weekend Cashback",
+    "description": "Transaksi kartu debit setiap Sabtu-Minggu dapatkan cashback 5%.",
+    "valid_from": "2025-06-08",
+    "valid_to": "2025-08-31",
+    "category": "Cashback"
+  },
+  {
+    "id": 18,
+    "title": "Diskon Restoran",
+    "description": "Diskon 20% di restoran mitra menggunakan kartu kredit platinum.",
+    "valid_from": "2025-06-01",
+    "valid_to": "2025-07-15",
+    "category": "Kuliner"
+  },
+  {
+    "id": 19,
+    "title": "Transfer Gratis Antar Bank",
+    "description": "Nikmati 20x transfer antar bank gratis tiap bulan melalui aplikasi.",
+    "valid_from": "2025-06-01",
+    "valid_to": "2025-12-31",
+    "category": "Transfer"
+  },
+  {
+    "id": 20,
+    "title": "Investasi Reksadana Cashback",
+    "description": "Investasi pertama reksadana minimal Rp500 ribu dapat cashback Rp50 ribu.",
+    "valid_from": "2025-06-01",
+    "valid_to": "2025-06-30",
+    "category": "Investasi"
+  },
+  {
+    "id": 21,
+    "title": "QRIS Dapat Pulsa",
+    "description": "Transaksi QRIS minimal Rp50.000 dapatkan pulsa Rp10.000.",
+    "valid_from": "2025-06-10",
+    "valid_to": "2025-06-25",
+    "category": "QRIS"
+  },
+  {
+    "id": 22,
+    "title": "Tarik Tunai Tanpa Kartu",
+    "description": "Gunakan mobile banking untuk tarik tunai tanpa kartu di ATM bank kami.",
+    "valid_from": "2025-06-01",
+    "valid_to": "2025-11-30",
+    "category": "Digital"
+  },
+  {
+    "id": 23,
+    "title": "Promo Bayar Pajak",
+    "description": "Bayar PBB dan pajak kendaraan melalui aplikasi dan dapat cashback 5%.",
+    "valid_from": "2025-06-01",
+    "valid_to": "2025-07-31",
+    "category": "Pajak"
+  },
+  {
+    "id": 24,
+    "title": "Upgrade Kartu Kredit Hadiah Langsung",
+    "description": "Upgrade kartu kredit Anda dan langsung dapatkan voucher belanja Rp250.000.",
+    "valid_from": "2025-06-01",
+    "valid_to": "2025-08-31",
+    "category": "Kartu Kredit"
+  },
+  {
+    "id": 25,
+    "title": "Donasi Lewat Banking Dapat Poin",
+    "description": "Setiap donasi lewat mobile banking akan diberi poin loyalti.",
+    "valid_from": "2025-06-05",
+    "valid_to": "2025-08-31",
+    "category": "Sosial"
+  },
+  {
+    "id": 26,
+    "title": "Diskon Tiket Kereta",
+    "description": "Dapatkan diskon Rp50.000 untuk pembelian tiket kereta di aplikasi.",
+    "valid_from": "2025-06-01",
+    "valid_to": "2025-07-15",
+    "category": "Transportasi"
+  },
+  {
+    "id": 27,
+    "title": "Gratis Asuransi Selama 3 Bulan",
+    "description": "Pembukaan tabungan baru akan mendapatkan proteksi asuransi gratis.",
+    "valid_from": "2025-06-01",
+    "valid_to": "2025-07-31",
+    "category": "Asuransi"
+  },
+  {
+    "id": 28,
+    "title": "Bonus Poin Tiap Login",
+    "description": "Login harian ke mobile banking dapat poin hingga 5x sehari.",
+    "valid_from": "2025-06-01",
+    "valid_to": "2025-06-30",
+    "category": "Loyalty"
+  },
+  {
+    "id": 29,
+    "title": "Program Hadiah Ulang Tahun",
+    "description": "Pengguna yang ulang tahun bulan ini dapat hadiah kejutan spesial.",
+    "valid_from": "2025-06-01",
+    "valid_to": "2025-06-30",
+    "category": "Personal"
+  },
+  {
+    "id": 30,
+    "title": "Bonus Kuota Data",
+    "description": "Top up pulsa dari mobile banking minimal Rp100.000 dapat bonus kuota 2GB.",
+    "valid_from": "2025-06-01",
+    "valid_to": "2025-06-30",
+    "category": "Internet"
+  }
+]
