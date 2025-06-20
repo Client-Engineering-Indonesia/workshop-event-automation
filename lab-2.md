@@ -11,7 +11,7 @@ Add a topic to Event Endpoint Management to make it available to others as an ev
 3. In the Interaction pane, select how your application will interact with the event source. Click Consume events and click Next.
 ![alt text](images/lab-2/2.png)
 
-5. Select your cluster which you create topic previously (**maybank-cluster-es**).
+5. Select your cluster which you create topic previously (**bjb-cluster-es**).
 ![alt text](images/lab-2/choose-cluster-lab-2.png)
 
 4. Select your topic from the list of topics available on this cluster.
