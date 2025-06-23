@@ -1,0 +1,30 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: surveygeocoderservice
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/scale-down-delay: "2700s"
+    spec:
+      serviceAccountName: instanton-sa
+      containers:
+      - name: surveygeocoderservice
+        image: quay.io/jgomezr/surveygeocoderservice:latest
+        imagePullPolicy: Always
+        env:
+        - name: mp.messaging.connector.liberty-kafka.bootstrap.servers
+          value: ${ES_BOOTSTRAP_SERVER}
+        - name: GOOGLE_API_KEY
+          value: ${GOOGLE_API_KEY}
+        securityContext:
+          allowPrivilegeEscalation: true
+          privileged: false
+          runAsNonRoot: true
+          capabilities:
+            add:
+            - CHECKPOINT_RESTORE
+            - SETPCAP
+            drop:
+            - ALL

@@ -1,0 +1,11 @@
+apiVersion: integration.ibm.com/v1beta2
+kind: OperationsDashboardServiceBinding
+metadata:
+  name: od-service-binding
+  namespace: ${NS}
+spec:
+  odNamespace: ${NS}
+  odInstanceName: od-tracing
+  sourceInstanceName: ${CAPABILITY_INST_NAME}
+  sourcePodName: ${CAPABILITY_POD_NAME}
+  sourceSecretName: icp4i-od-store-cred

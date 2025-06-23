@@ -1,0 +1,31 @@
+kind: QueueManager
+apiVersion: mq.ibm.com/v1beta1
+metadata:
+  annotations:
+    com.ibm.mq/write-defaults-spec: 'false'
+  name: qmgr-test
+spec:
+  license:
+    accept: true
+    license: L-JTPV-KYG8TF
+    use: NonProduction
+  queueManager:
+    name: QMGRTEST
+    resources:
+      limits:
+        cpu: 500m
+      requests:
+        cpu: 500m
+    storage:
+      queueManager:
+        type: ephemeral
+  template:
+    pod:
+      containers:
+        - env:
+            - name: MQSNOAUT
+              value: 'yes'
+          name: qmgr
+  version: 9.4.1.0-r1
+  web:
+    enabled: false

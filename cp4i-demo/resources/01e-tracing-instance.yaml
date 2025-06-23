@@ -1,0 +1,9 @@
+kind: Jaeger
+apiVersion: jaegertracing.io/v1
+metadata:
+  name: jaeger-all-in-one-inmemory
+  namespace: openshift-distributed-tracing
+spec:
+  strategy: allInOne
+status:
+  phase: Running

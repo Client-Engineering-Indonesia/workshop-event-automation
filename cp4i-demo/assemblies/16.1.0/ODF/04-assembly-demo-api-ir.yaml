@@ -1,0 +1,47 @@
+apiVersion: integration.ibm.com/v1beta1
+kind: IntegrationAssembly
+metadata:
+  name: ia-test-api-ir
+  labels:
+    backup.integration.ibm.com/component: integrationassembly
+  namespace: tools
+spec:
+  license:
+    accept: true
+    license: L-JTPV-KYG8TF
+    use: CloudPakForIntegrationNonProduction
+  version: 16.1.0
+  managedInstances:
+    list: []
+  managedIntegrations:
+    list:
+      - kind: API
+        metadata:
+          name: jgr-aceapi-ia
+        spec:
+          definition:
+            integrationRuntime: 
+              name: jgr-aceapi-ivt
+            security:
+              type: NoOp
+          share:
+            apim:
+              credentialsSecret: apim-credentials
+              providerOrg: cp4i-demo-org
+      - kind: IntegrationRuntime
+        metadata:
+          name: jgr-aceapi-ivt
+        spec:
+          license:
+            accept: true
+            license: L-XRNH-47FJAW
+            use: CloudPakForIntegrationNonProduction
+          version: '12.0'
+          barURL:
+            - >-
+              https://github.com/gomezrjo/cp4idemo/raw/main/barfiles/jgr-cp4i-aceivt.bar
+          configurations:
+            - github-barauth
+  storage:
+    readWriteOnce:
+      class: ocs-storagecluster-ceph-rbd

@@ -1,0 +1,28 @@
+apiVersion: postgresql.k8s.enterprisedb.io/v1
+kind: Cluster
+metadata:
+  name: pgsqltest
+spec:
+  instances: 1
+  storage:
+    size: 1Gi
+  postgresql:
+    pg_hba:
+      - hostnossl pgsqldemo demouser all md5
+      - hostssl pgsqldemo demouser all scram-sha-256
+  bootstrap:
+    initdb:
+      database: pgsqldemo
+      postInitApplicationSQLRefs:
+        configMapRefs:
+          - name: pgsqldemo-data-cm
+            key: demo_data.sql
+  cluster_vars:
+    postgres_users:
+    - name: demouser
+      databases:
+        - pgsqldemo
+      options: SUPERUSER
+    - name: pgadmin
+      databases:
+        - pgsqldemo

@@ -1,0 +1,71 @@
+apiVersion: integration.ibm.com/v1beta1
+kind: IntegrationAssembly
+metadata:
+  name: ia-canvas
+  labels:
+    backup.integration.ibm.com/component: integrationassembly
+  namespace: tools
+spec:
+  license:
+    accept: true
+    license: L-JTPV-KYG8TF
+    use: CloudPakForIntegrationNonProduction
+  version: 16.1.0
+  independentResources:
+    selector:
+      matchLabels:
+        assembly.integration.ibm.com/tools.ia-canvas: 'true'
+  managedInstances:
+    list: []
+  managedIntegrations:
+    list: []
+  storage:
+    readWriteOnce:
+      class: ocs-storagecluster-ceph-rbd
+---
+kind: MessagingChannel
+metadata:
+  name: channel1
+  namespace: tools
+  labels:
+    assembly.integration.ibm.com/tools.ia-canvas: 'true'
+apiVersion: integration.ibm.com/v1beta1
+spec:
+  messagingServer:
+    name: jgrmessagingserver
+  channel:
+    type: ServerConnMTLS
+  sniRoute:
+    enabled: true
+---
+kind: MessagingQueue
+metadata:
+  name: queue1
+  namespace: tools
+  labels:
+    assembly.integration.ibm.com/tools.ia-canvas: 'true'
+apiVersion: integration.ibm.com/v1beta1
+spec:
+  messagingServer:
+    name: jgrmessagingserver
+  queue:
+    type: Local
+---
+kind: MessagingServer
+metadata:
+  name: jgrmessagingserver
+  namespace: tools
+  labels:
+    assembly.integration.ibm.com/tools.ia-canvas: 'true'
+apiVersion: integration.ibm.com/v1beta1
+spec:
+  license:
+    accept: true
+    license: L-JTPV-KYG8TF
+    use: CloudPakForIntegrationNonProduction
+  queueManager:
+    storage:
+      defaultClass: ocs-storagecluster-ceph-rbd
+    availability:
+      type: SingleInstance
+  version: 16.1.0

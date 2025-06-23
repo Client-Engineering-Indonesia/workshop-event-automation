@@ -1,0 +1,29 @@
+apiVersion: events.ibm.com/v1beta1
+kind: EventEndpointManagement
+metadata:
+  name: eem-demo-mgr
+  namespace: tools
+spec:
+  license:
+    accept: true
+    license: L-KCVZ-JL5CRM
+    metric: VIRTUAL_PROCESSOR_CORE
+    use: EventAutomationNonProduction
+  manager:
+    authConfig:
+      authType: LOCAL
+    storage:
+      storageClassName: ibmc-block-gold
+      type: persistent-claim
+    template:
+      pod:
+        spec:
+          containers:
+            - name: manager
+              resources:
+                requests:
+                  cpu: '0.25'
+                  memory: 256Mi
+                limits:
+                  cpu: '0.5'
+                  memory: 512Mi

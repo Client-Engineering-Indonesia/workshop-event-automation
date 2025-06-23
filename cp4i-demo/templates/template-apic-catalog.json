@@ -1,0 +1,9 @@
+{
+    "type": "catalog",
+    "api_version": "2.0.0",
+    "name": "demo",
+    "title": "Demo",
+    "summary": "Demo Catalog",
+    "owner_url": "demo porg owner id url",
+    "org_url": "demo porg url"
+}

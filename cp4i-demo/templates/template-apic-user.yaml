@@ -1,0 +1,5 @@
+username: ${USER_NAME}
+email: ${USER_EMAIL}
+first_name: ${USER_FNAME}
+last_name: ${USER_LNAME}
+password: ${USER_PWD}

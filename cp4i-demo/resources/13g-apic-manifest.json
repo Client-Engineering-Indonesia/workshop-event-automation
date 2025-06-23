@@ -1,0 +1,11 @@
+{
+    "extension": {
+        "files": [
+            {
+                "filename": "otelgwextension.zip",
+                "deploy": "immediate",
+                "type": "extension"
+            }
+        ]
+    }
+}

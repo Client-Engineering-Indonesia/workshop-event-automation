@@ -1,0 +1,28 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: surveyinputservice
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/scale-down-delay: "2700s"
+    spec:
+      serviceAccountName: instanton-sa
+      containers:
+      - name: surveyinputservice
+        image: quay.io/jgomezr/surveyinputservice:latest
+        imagePullPolicy: Always
+        env:
+        - name: mp.messaging.connector.liberty-kafka.bootstrap.servers
+          value: ${ES_BOOTSTRAP_SERVER}
+        securityContext:
+          allowPrivilegeEscalation: true
+          privileged: false
+          runAsNonRoot: true
+          capabilities:
+            add:
+            - CHECKPOINT_RESTORE
+            - SETPCAP
+            drop:
+            - ALL

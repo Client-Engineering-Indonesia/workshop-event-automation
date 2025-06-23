@@ -1,0 +1,5 @@
+spec:
+  config:
+    features:
+      kubernetes.containerspec-addcapabilities: enabled
+      kubernetes.podspec-securitycontext: enabled

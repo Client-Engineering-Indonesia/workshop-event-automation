@@ -1,0 +1,21 @@
+apiVersion: instana.io/v1
+kind: InstanaAgent
+metadata:
+  name: instana-agent
+  namespace: instana-agent
+spec:
+  zone:
+    name: ${ZONE_NAME}
+  cluster:
+    name: ${CLUSTER_NAME}
+  agent:
+    key: ${INSTANA_APP_KEY}
+    endpointHost: ${INSTANA_SVC_ENDPOINT}
+    endpointPort: "${INSTANA_SVC_PORT}"
+    env:
+      INSTANA_AGENT_TAGS: example
+    configuration_yaml: |
+      # You can leave this empty, or use this to configure your instana agent.
+      # See https://docs.instana.io/setup_and_manage/host_agent/on/kubernetes/
+      com.instana.plugin.opentelemetry:
+        enabled: true

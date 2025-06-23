@@ -1,0 +1,36 @@
+apiVersion: appconnect.ibm.com/v1beta1
+kind: IntegrationRuntime
+metadata:
+  name: jgr-kafka-email
+  namespace: tools
+  labels:
+    assembly.integration.ibm.com/tools.jgr-demo: 'true'
+spec:
+  flowType:
+    toolkitFlow: true
+  license:
+    accept: true
+    license: L-KZVS-2G3FW4
+    use: CloudPakForIntegrationNonProduction
+  template:
+    spec:
+      containers:
+        - name: runtime
+          image: image-registry.openshift-image-registry.svc:5000/tools/ace-12.0.10.0-r3-kafka2email:1.0.0
+          imagePullPolicy: Always
+          resources:
+            limits:
+              cpu: 500m
+              memory: 512Mi
+            requests:
+              cpu: 500m
+              memory: 512Mi   
+  replicas: 1
+  version: 12.0.11.1-r1
+  configurations:
+    - ace-eem-egw-policy
+    - ace-eem-gateway-secid
+    - egw-cert.jks
+    - ace-email-server-policy
+    - ace-email-server-secid
+    - ace-cp4i-demo-policy

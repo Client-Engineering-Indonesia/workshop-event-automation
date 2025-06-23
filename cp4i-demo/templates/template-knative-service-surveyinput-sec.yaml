@@ -1,0 +1,48 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: surveyinputservice
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/scale-down-delay: "2700s"
+    spec:
+      serviceAccountName: instanton-sa
+      containers:
+      - name: surveyinputservice
+        image: quay.io/jgomezr/surveyinputservice:latest
+        imagePullPolicy: Always
+        env:
+        - name: mp.messaging.connector.liberty-kafka.security.protocol
+          value: SASL_SSL
+        - name: mp.messaging.connector.liberty-kafka.sasl.mechanism
+          value: SCRAM-SHA-512
+        - name: mp.messaging.connector.liberty-kafka.sasl.jaas.config
+          value: org.apache.kafka.common.security.scram.ScramLoginModule required username="${ES_USER_ID}" password="${ES_USER_PWD}";
+        - name: mp.messaging.connector.liberty-kafka.ssl.truststore.location
+          value: /es-cert/es-cert.jks
+        - name: mp.messaging.connector.liberty-kafka.ssl.truststore.password
+          value: ${TRUSTSTORE_PWD}
+        - name: mp.messaging.connector.liberty-kafka.bootstrap.servers
+          value: ${ES_BOOTSTRAP_SERVER}
+        securityContext:
+          allowPrivilegeEscalation: true
+          privileged: false
+          runAsNonRoot: true
+          capabilities:
+            add:
+            - CHECKPOINT_RESTORE
+            - SETPCAP
+            drop:
+            - ALL
+        volumeMounts:
+          - name: truststore
+            mountPath: /es-cert
+      volumes:
+        - name: truststore
+          secret:
+            items:
+              - key: es-cert.jks
+                path: es-cert.jks
+            secretName: knative-service-es-demo-auth

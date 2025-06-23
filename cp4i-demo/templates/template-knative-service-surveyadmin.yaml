@@ -1,0 +1,37 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: surveyadminservice
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/max-scale: "1"
+        autoscaling.knative.dev/scale-down-delay: "2700s"
+    spec:
+      serviceAccountName: instanton-sa
+      containers:
+      - name: surveyadminservice
+        image: quay.io/jgomezr/surveyadminservice:latest
+        imagePullPolicy: Always
+        env:
+        - name: mp.messaging.connector.liberty-kafka.bootstrap.servers
+          value: ${ES_BOOTSTRAP_SERVER}
+        - name: GOOGLE_API_KEY
+          value: ${GOOGLE_API_KEY}
+        - name: QRCODE_URL
+          value: ${QRCODE_URL}
+        - name: SURVEY_LATITUDE
+          value: ${SURVEY_LATITUDE}
+        - name: SURVEY_LONGITUDE
+          value: ${SURVEY_LONGITUDE}
+        securityContext:
+          allowPrivilegeEscalation: true
+          privileged: false
+          runAsNonRoot: true
+          capabilities:
+            add:
+            - CHECKPOINT_RESTORE
+            - SETPCAP
+            drop:
+            - ALL

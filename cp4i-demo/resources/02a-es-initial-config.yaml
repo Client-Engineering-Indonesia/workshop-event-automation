@@ -1,0 +1,759 @@
+apiVersion: eventstreams.ibm.com/v1beta2
+kind: KafkaTopic
+metadata:
+  name: cp4i-ivt-topic
+  namespace: tools
+  labels:
+    eventstreams.ibm.com/cluster: es-demo
+spec:
+  partitions: 1
+  replicas: 3
+  config:
+    retention.ms: '86400000'
+---
+apiVersion: eventstreams.ibm.com/v1beta2
+kind: KafkaTopic
+metadata:
+  name: cp4i-es-demo-topic
+  namespace: tools
+  labels:
+    eventstreams.ibm.com/cluster: es-demo
+spec:
+  partitions: 1
+  replicas: 3
+  config:
+    retention.ms: '86400000'
+---
+apiVersion: eventstreams.ibm.com/v1beta2
+kind: KafkaTopic
+metadata:
+  name: cp4i-mq-2-es-demo-topic
+  namespace: tools
+  labels:
+    eventstreams.ibm.com/cluster: es-demo
+spec:
+  partitions: 1
+  replicas: 3
+  config:
+    retention.ms: '86400000'
+---
+apiVersion: eventstreams.ibm.com/v1beta2
+kind: KafkaTopic
+metadata:
+  name: cp4i-es-2-mq-demo-topic
+  namespace: tools
+  labels:
+    eventstreams.ibm.com/cluster: es-demo
+spec:
+  partitions: 1
+  replicas: 3
+  config:
+    retention.ms: '86400000'
+---
+apiVersion: eventstreams.ibm.com/v1beta2
+kind: KafkaTopic
+metadata:
+  name: feedback
+  namespace: tools
+  labels:
+    eventstreams.ibm.com/cluster: es-demo
+spec:
+  partitions: 1
+  replicas: 3
+  config:
+    retention.ms: '86400000'
+---
+apiVersion: eventstreams.ibm.com/v1beta2
+kind: KafkaTopic
+metadata:
+  name: fake-orders
+  namespace: tools
+  labels:
+    eventstreams.ibm.com/cluster: es-demo
+spec:
+  config:
+    min.insync.replicas: '1'
+    retention.bytes: '524288000'
+  partitions: 3
+  replicas: 3
+  topicName: ORDERS.NEW
+---
+apiVersion: eventstreams.ibm.com/v1beta2
+kind: KafkaTopic
+metadata:
+  name: fake-cancellations
+  namespace: tools
+  labels:
+    eventstreams.ibm.com/cluster: es-demo
+spec:
+  config:
+    min.insync.replicas: '1'
+    retention.bytes: '524288000'
+  partitions: 3
+  replicas: 3
+  topicName: CANCELLATIONS
+---
+apiVersion: eventstreams.ibm.com/v1beta2
+kind: KafkaTopic
+metadata:
+  name: fake-badgeevents
+  namespace: tools
+  labels:
+    eventstreams.ibm.com/cluster: es-demo
+spec:
+  config:
+    min.insync.replicas: '1'
+    retention.bytes: '524288000'
+  partitions: 3
+  replicas: 1
+  topicName: DOOR.BADGEIN
+---
+apiVersion: eventstreams.ibm.com/v1beta2
+kind: KafkaTopic
+metadata:
+  name: fake-stockmovement
+  namespace: tools
+  labels:
+    eventstreams.ibm.com/cluster: es-demo
+spec:
+  config:
+    min.insync.replicas: '1'
+    retention.bytes: '524288000'
+  partitions: 3
+  replicas: 1
+  topicName: STOCK.MOVEMENT
+---
+apiVersion: eventstreams.ibm.com/v1beta2
+kind: KafkaTopic
+metadata:
+  name: fake-customers
+  namespace: tools
+  labels:
+    eventstreams.ibm.com/cluster: es-demo
+spec:
+  config:
+    min.insync.replicas: '1'
+    retention.bytes: '524288000'
+  partitions: 3
+  replicas: 3
+  topicName: CUSTOMERS.NEW
+---
+apiVersion: eventstreams.ibm.com/v1beta2
+kind: KafkaTopic
+metadata:
+  name: fake-sensorreadings
+  namespace: tools
+  labels:
+    eventstreams.ibm.com/cluster: es-demo
+spec:
+  config:
+    min.insync.replicas: '1'
+    retention.bytes: '524288000'
+  partitions: 3
+  replicas: 1
+  topicName: SENSOR.READINGS
+---
+apiVersion: eventstreams.ibm.com/v1beta2
+kind: KafkaTopic
+metadata:
+  name: fake-onlineorders
+  namespace: tools
+  labels:
+    eventstreams.ibm.com/cluster: es-demo
+spec:
+  config:
+    min.insync.replicas: '1'
+    retention.bytes: '524288000'
+  partitions: 3
+  replicas: 3
+  topicName: ORDERS.ONLINE
+---
+apiVersion: eventstreams.ibm.com/v1beta2
+kind: KafkaTopic
+metadata:
+  name: fake-outofstocks
+  namespace: tools
+  labels:
+    eventstreams.ibm.com/cluster: es-demo
+spec:
+  config:
+    min.insync.replicas: '1'
+    retention.bytes: '524288000'
+  partitions: 3
+  replicas: 3
+  topicName: STOCK.NOSTOCK
+---
+apiVersion: eventstreams.ibm.com/v1beta2
+kind: KafkaTopic
+metadata:
+  name: fake-orders-avro
+  namespace: tools
+  labels:
+    eventstreams.ibm.com/cluster: es-demo
+spec:
+  config:
+    min.insync.replicas: '1'
+    retention.bytes: '50000000'
+  partitions: 3
+  replicas: 1
+  topicName: ORDERS.NEW.AVRO
+---
+apiVersion: eventstreams.ibm.com/v1beta2
+kind: KafkaTopic
+metadata:
+  name: fake-cancellations-avro
+  namespace: tools
+  labels:
+    eventstreams.ibm.com/cluster: es-demo
+spec:
+  config:
+    min.insync.replicas: '1'
+    retention.bytes: '50000000'
+  partitions: 3
+  replicas: 1
+  topicName: CANCELLATIONS.AVRO
+---
+apiVersion: eventstreams.ibm.com/v1beta2
+kind: KafkaTopic
+metadata:
+  name: fake-badgeevents-avro
+  namespace: tools
+  labels:
+    eventstreams.ibm.com/cluster: es-demo
+spec:
+  config:
+    min.insync.replicas: '1'
+    retention.bytes: '50000000'
+  partitions: 3
+  replicas: 1
+  topicName: DOOR.BADGEIN.AVRO
+---
+apiVersion: eventstreams.ibm.com/v1beta2
+kind: KafkaTopic
+metadata:
+  name: fake-stockmovement-avro
+  namespace: tools
+  labels:
+    eventstreams.ibm.com/cluster: es-demo
+spec:
+  config:
+    min.insync.replicas: '1'
+    retention.bytes: '50000000'
+  partitions: 3
+  replicas: 1
+  topicName: STOCK.MOVEMENT.AVRO
+---
+apiVersion: eventstreams.ibm.com/v1beta2
+kind: KafkaTopic
+metadata:
+  name: fake-customers-avro
+  namespace: tools
+  labels:
+    eventstreams.ibm.com/cluster: es-demo
+spec:
+  config:
+    min.insync.replicas: '1'
+    retention.bytes: '50000000'
+  partitions: 3
+  replicas: 1
+  topicName: CUSTOMERS.NEW.AVRO
+---
+apiVersion: eventstreams.ibm.com/v1beta2
+kind: KafkaTopic
+metadata:
+  name: fake-sensorreadings-avro
+  namespace: tools
+  labels:
+    eventstreams.ibm.com/cluster: es-demo
+spec:
+  config:
+    min.insync.replicas: '1'
+    retention.bytes: '50000000'
+  partitions: 3
+  replicas: 1
+  topicName: SENSOR.READINGS.AVRO
+---
+apiVersion: eventstreams.ibm.com/v1beta2
+kind: KafkaTopic
+metadata:
+  name: fake-onlineorders-avro
+  namespace: tools
+  labels:
+    eventstreams.ibm.com/cluster: es-demo
+spec:
+  config:
+    min.insync.replicas: '1'
+    retention.bytes: '50000000'
+  partitions: 3
+  replicas: 1
+  topicName: ORDERS.ONLINE.AVRO
+---
+apiVersion: eventstreams.ibm.com/v1beta2
+kind: KafkaTopic
+metadata:
+  name: fake-outofstocks-avro
+  namespace: tools
+  labels:
+    eventstreams.ibm.com/cluster: es-demo
+spec:
+  config:
+    min.insync.replicas: '1'
+    retention.bytes: '50000000'
+  partitions: 3
+  replicas: 1
+  topicName: STOCK.NOSTOCK.AVRO
+---
+apiVersion: eventstreams.ibm.com/v1beta2
+kind: KafkaTopic
+metadata:
+  name: fake-orders-reg
+  namespace: tools
+  labels:
+    eventstreams.ibm.com/cluster: es-demo
+spec:
+  config:
+    min.insync.replicas: '1'
+    retention.bytes: '50000000'
+  partitions: 1
+  replicas: 1
+  topicName: ORDERS.NEW.REG
+---
+apiVersion: eventstreams.ibm.com/v1beta2
+kind: KafkaTopic
+metadata:
+  name: fake-cancellations-reg
+  namespace: tools
+  labels:
+    eventstreams.ibm.com/cluster: es-demo
+spec:
+  config:
+    min.insync.replicas: '1'
+    retention.bytes: '50000000'
+  partitions: 1
+  replicas: 1
+  topicName: CANCELLATIONS.REG
+---
+apiVersion: eventstreams.ibm.com/v1beta2
+kind: KafkaTopic
+metadata:
+  name: fake-badgeevents-reg
+  namespace: tools
+  labels:
+    eventstreams.ibm.com/cluster: es-demo
+spec:
+  config:
+    min.insync.replicas: '1'
+    retention.bytes: '50000000'
+  partitions: 1
+  replicas: 1
+  topicName: DOOR.BADGEIN.REG
+---
+apiVersion: eventstreams.ibm.com/v1beta2
+kind: KafkaTopic
+metadata:
+  name: fake-stockmovement-reg
+  namespace: tools
+  labels:
+    eventstreams.ibm.com/cluster: es-demo
+spec:
+  config:
+    min.insync.replicas: '1'
+    retention.bytes: '50000000'
+  partitions: 1
+  replicas: 1
+  topicName: STOCK.MOVEMENT.REG
+---
+apiVersion: eventstreams.ibm.com/v1beta2
+kind: KafkaTopic
+metadata:
+  name: fake-customers-reg
+  namespace: tools
+  labels:
+    eventstreams.ibm.com/cluster: es-demo
+spec:
+  config:
+    min.insync.replicas: '1'
+    retention.bytes: '50000000'
+  partitions: 1
+  replicas: 1
+  topicName: CUSTOMERS.NEW.REG
+---
+apiVersion: eventstreams.ibm.com/v1beta2
+kind: KafkaTopic
+metadata:
+  name: fake-sensorreadings-reg
+  namespace: tools
+  labels:
+    eventstreams.ibm.com/cluster: es-demo
+spec:
+  config:
+    min.insync.replicas: '1'
+    retention.bytes: '50000000'
+  partitions: 1
+  replicas: 1
+  topicName: SENSOR.READINGS.REG
+---
+apiVersion: eventstreams.ibm.com/v1beta2
+kind: KafkaTopic
+metadata:
+  name: fake-onlineorders-reg
+  namespace: tools
+  labels:
+    eventstreams.ibm.com/cluster: es-demo
+spec:
+  config:
+    min.insync.replicas: '1'
+    retention.bytes: '50000000'
+  partitions: 1
+  replicas: 1
+  topicName: ORDERS.ONLINE.REG
+---
+apiVersion: eventstreams.ibm.com/v1beta2
+kind: KafkaTopic
+metadata:
+  name: fake-outofstocks-reg
+  namespace: tools
+  labels:
+    eventstreams.ibm.com/cluster: es-demo
+spec:
+  config:
+    min.insync.replicas: '1'
+    retention.bytes: '50000000'
+  partitions: 1
+  replicas: 1
+  topicName: STOCK.NOSTOCK.REG
+---
+apiVersion: eventstreams.ibm.com/v1beta2
+kind: KafkaTopic
+metadata:
+  name: apic-analytics-offload-topic
+  namespace: tools
+  labels:
+    eventstreams.ibm.com/cluster: es-demo
+spec:
+  partitions: 1
+  replicas: 3
+  config:
+    retention.ms: '86400000'
+---
+apiVersion: eventstreams.ibm.com/v1beta2
+kind: KafkaUser
+metadata:
+  labels:
+    app.kubernetes.io/instance: es-demo
+    eventstreams.ibm.com/cluster: es-demo
+  name: es-admin
+  namespace: tools
+spec:
+  authentication:
+    type: scram-sha-512
+  authorization:
+    acls:
+      - operations:
+          - Alter
+          - DescribeConfigs
+        resource:
+          type: cluster
+      - operations:
+          - Create
+          - Read
+          - Write
+          - Delete
+          - DescribeConfigs
+          - Alter
+          - AlterConfigs
+        resource:
+          name: '*'
+          patternType: literal
+          type: topic
+      - operations:
+          - Alter
+          - Read
+        resource:
+          name: __schema_
+          patternType: prefix
+          type: topic
+      - operations:
+          - Read
+          - Delete
+        resource:
+          name: '*'
+          patternType: literal
+          type: group
+    type: simple
+---
+apiVersion: eventstreams.ibm.com/v1beta2
+kind: KafkaUser
+metadata:
+  labels:
+    app.kubernetes.io/instance: es-demo
+    eventstreams.ibm.com/cluster: es-demo
+  name: ace-user
+  namespace: tools
+spec:
+  authentication:
+    type: scram-sha-512
+  authorization:
+    acls:
+      - host: '*'
+        operations:
+          - Read
+          - Write
+          - Create
+        resource:
+          name: '*'
+          patternType: literal
+          type: topic
+      - host: '*'
+        operations:
+          - Read
+          - Alter
+        resource:
+          name: __schema_
+          patternType: prefix
+          type: topic
+      - host: '*'
+        operations:
+          - Read
+        resource:
+          name: '*'
+          patternType: literal
+          type: group
+      - host: '*'
+        operations:
+          - Write
+        resource:
+          name: '*'
+          patternType: literal
+          type: transactionalId
+    type: simple
+---
+apiVersion: eventstreams.ibm.com/v1beta2
+kind: KafkaUser
+metadata:
+  labels:
+    app.kubernetes.io/instance: es-demo
+    eventstreams.ibm.com/cluster: es-demo
+  name: kafka-connect-user
+  namespace: tools
+spec:
+  authentication:
+    type: scram-sha-512
+  authorization:
+    acls:
+      - host: '*'
+        operations:
+          - Read
+          - Write
+          - Create
+        resource:
+          name: '*'
+          patternType: literal
+          type: topic
+      - host: '*'
+        operations:
+          - Read
+          - Alter
+        resource:
+          name: __schema_
+          patternType: prefix
+          type: topic
+      - host: '*'
+        operations:
+          - Read
+        resource:
+          name: '*'
+          patternType: literal
+          type: group
+      - host: '*'
+        operations:
+          - Write
+        resource:
+          name: '*'
+          patternType: literal
+          type: transactionalId
+    type: simple
+---
+apiVersion: eventstreams.ibm.com/v1beta2
+kind: KafkaUser
+metadata:
+  labels:
+    app.kubernetes.io/instance: es-demo
+    eventstreams.ibm.com/cluster: es-demo
+  name: kafka-bridge-user
+  namespace: tools
+spec:
+  authentication:
+    type: scram-sha-512
+  authorization:
+    acls:
+      - host: '*'
+        operations:
+          - Read
+          - Write
+          - Create
+        resource:
+          name: '*'
+          patternType: literal
+          type: topic
+      - host: '*'
+        operations:
+          - Read
+          - Alter
+        resource:
+          name: __schema_
+          patternType: prefix
+          type: topic
+      - host: '*'
+        operations:
+          - Read
+        resource:
+          name: '*'
+          patternType: literal
+          type: group
+      - host: '*'
+        operations:
+          - Write
+        resource:
+          name: '*'
+          patternType: literal
+          type: transactionalId
+    type: simple
+---
+apiVersion: eventstreams.ibm.com/v1beta2
+kind: KafkaUser
+metadata:
+  labels:
+    app.kubernetes.io/instance: es-demo
+    eventstreams.ibm.com/cluster: es-demo
+  name: eem-user
+  namespace: tools
+spec:
+  authentication:
+    type: scram-sha-512
+  authorization:
+    acls:
+      - host: '*'
+        operations:
+          - Read
+          - Write
+          - Create
+        resource:
+          name: '*'
+          patternType: literal
+          type: topic
+      - host: '*'
+        operations:
+          - Read
+          - Alter
+        resource:
+          name: __schema_
+          patternType: prefix
+          type: topic
+      - host: '*'
+        operations:
+          - Read
+        resource:
+          name: '*'
+          patternType: literal
+          type: group
+      - host: '*'
+        operations:
+          - Write
+        resource:
+          name: '*'
+          patternType: literal
+          type: transactionalId
+    type: simple
+---
+apiVersion: eventstreams.ibm.com/v1beta2
+kind: KafkaUser
+metadata:
+  labels:
+    app.kubernetes.io/instance: es-demo
+    eventstreams.ibm.com/cluster: es-demo
+  name: ep-user
+  namespace: tools
+spec:
+  authentication:
+    type: scram-sha-512
+  authorization:
+    acls:
+      - host: '*'
+        operations:
+          - Read
+          - Write
+          - Create
+        resource:
+          name: '*'
+          patternType: literal
+          type: topic
+      - host: '*'
+        operations:
+          - Read
+          - Alter
+        resource:
+          name: __schema_
+          patternType: prefix
+          type: topic
+      - host: '*'
+        operations:
+          - Read
+        resource:
+          name: '*'
+          patternType: literal
+          type: group
+      - host: '*'
+        operations:
+          - Write
+        resource:
+          name: '*'
+          patternType: literal
+          type: transactionalId
+    type: simple
+---
+apiVersion: eventstreams.ibm.com/v1beta2
+kind: KafkaUser
+metadata:
+  labels:
+    app.kubernetes.io/instance: es-demo
+    eventstreams.ibm.com/cluster: es-demo
+  name: apic-analytics-offload-user
+  namespace: tools
+spec:
+  authentication:
+    type: scram-sha-512
+  authorization:
+    acls:
+      - host: '*'
+        operations:
+          - Read
+          - Write
+          - Create
+        resource:
+          name: '*'
+          patternType: literal
+          type: topic
+      - host: '*'
+        operations:
+          - Read
+          - Alter
+        resource:
+          name: __schema_
+          patternType: prefix
+          type: topic
+      - host: '*'
+        operations:
+          - Read
+        resource:
+          name: '*'
+          patternType: literal
+          type: group
+      - host: '*'
+        operations:
+          - Write
+        resource:
+          name: '*'
+          patternType: literal
+          type: transactionalId
+    type: simple

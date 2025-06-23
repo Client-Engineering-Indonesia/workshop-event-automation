@@ -1,0 +1,4 @@
+ARG MQVER
+FROM cp.icr.io/cp/ibm-mqadvanced-server-integration:${MQVER}
+
+COPY jgrmqdemo.* /etc/mqm

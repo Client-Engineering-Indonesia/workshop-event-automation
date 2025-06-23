@@ -1,0 +1,29 @@
+apiVersion: appconnect.ibm.com/v1beta1
+kind: IntegrationRuntime
+metadata:
+  name: jgr-mqreqresp-frontend
+spec:
+  license:
+    accept: true
+    license: L-XRNH-47FJAW
+    use: CloudPakForIntegrationNonProduction
+  template:
+    spec:
+      containers:
+        - name: runtime
+          resources:
+            limits:
+              cpu: 500m
+              memory: 512Mi
+            requests:
+              cpu: 500m
+              memory: 512Mi
+  replicas: 2
+  version: '12.0'
+  barURL: 
+    - >-
+      https://github.com/gomezrjo/cp4idemo/raw/main/barfiles/Sha1HostnameClient.bar
+  configurations:
+    - github-barauth
+    - ace-qmgr-demo-policy
+    - jgr-default-qmgr

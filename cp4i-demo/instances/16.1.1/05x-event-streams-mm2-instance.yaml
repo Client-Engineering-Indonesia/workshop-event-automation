@@ -1,0 +1,46 @@
+apiVersion: eventstreams.ibm.com/v1beta2
+kind: EventStreams
+metadata:
+  name: ${ES_NAME}
+  labels:
+    backup.eventstreams.ibm.com/component: eventstreams
+spec:
+  adminApi: {}
+  adminUI:
+    authentication:
+      - type: scram-sha-512
+  license:
+    accept: true
+    license: L-AUKS-FKVXVL
+    use: EventAutomationNonProduction
+  requestIbmServices:
+    iam: false
+    monitoring: false
+  strimziOverrides:
+    entityOperator:
+      topicOperator: {}
+      userOperator: {}
+    kafka:
+      authorization:
+        type: simple
+      config:
+        auto.create.topics.enable: false
+      listeners:
+        - name: internal
+          authentication:
+            type: scram-sha-512
+          port: 9098
+          tls: true
+          type: internal
+      replicas: 3
+      storage:
+        type: persistent-claim
+        size: 10Gi
+        class: ${OCP_BLOCK_STORAGE}
+    zookeeper:
+      replicas: 3
+      storage:
+        type: persistent-claim
+        size: 2Gi
+        class: ${OCP_BLOCK_STORAGE}
+  version: latest
