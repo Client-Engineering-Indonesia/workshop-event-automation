@@ -62,7 +62,6 @@ A) Set environment variables:
 
 <details>
 <summary>
-
 B) Deploy Event Streams: 
 </summary>
 
@@ -309,7 +308,6 @@ C) Deploy Event Endpoint Management - EEM:
 
 <details>
 <summary>
-
 D) Deploy Event Processing (optional): 
 </summary>
 
@@ -448,6 +446,3 @@ D) Deploy Event Processing (optional):
       ```
 </details>
 &nbsp; 
-
-<details>
-<summary>
