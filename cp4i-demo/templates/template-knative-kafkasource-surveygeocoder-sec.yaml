@@ -1,0 +1,36 @@
+apiVersion: sources.knative.dev/v1beta1
+kind: KafkaSource
+metadata:
+  name: locationtopicsource
+spec:
+  bootstrapServers:
+  - ${ES_BOOTSTRAP_SERVER}
+  net:
+    sasl:
+      enable: true
+      user:
+        secretKeyRef:
+          name: kafkasource-es-demo-auth
+          key: user
+      password:
+        secretKeyRef:
+          name: kafkasource-es-demo-auth
+          key: password
+      type:
+        secretKeyRef:
+          name: kafkasource-es-demo-auth
+          key: saslType
+    tls:
+      enable: true
+      caCert:
+        secretKeyRef:
+          name: kafkasource-es-demo-auth
+          key: ca.crt
+  sink:
+    ref:
+      apiVersion: serving.knative.dev/v1
+      kind: Service
+      name: surveygeocoderservice
+    uri: "/api/cloudevents/locationInput"
+  topics:
+  - locationtopic

@@ -1,0 +1,12 @@
+apiVersion: console.openshift.io/v1
+kind: ConsoleNotification
+metadata:
+  name: my-title
+spec:
+  text: Cluster JGR-CP4I-TEST-45 with CP4I v2022.4 - Test APIC Testing feature(s)
+  location: BannerTop
+  link:
+    href: 'https://techzone.ibm.com/my/reservations'
+    text: TechZone Reservations
+  color: '#fff'
+  backgroundColor: '#0088ce'

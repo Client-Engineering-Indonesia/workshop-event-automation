@@ -1,0 +1,51 @@
+apiVersion: apiconnect.ibm.com/v1beta1
+kind: APIConnectCluster
+metadata:
+  annotations:
+    apiconnect-operator/backups-not-configured: 'true'
+  labels:
+    backup.apiconnect.ibm.com/component: apiconnectcluster
+  name: apim-demo
+  namespace: tools
+spec:
+  analytics:
+    mtlsValidateClient: true
+  license:
+    accept: true
+    license: L-DZZQ-MGVN8V
+    metric: VIRTUAL_PROCESSOR_CORE
+    use: nonproduction
+  portal:
+    mtlsValidateClient: true
+  profile: n1xc7.m48
+  version: 10.0.8.1
+  storageClassName: ocs-storagecluster-ceph-rbd
+  management:
+    billing:
+      enabled: true
+    governance:
+      enabled: true
+    testAndMonitor:
+      enabled: true
+      autoTestEnabled: true
+  gateway:
+    jaegerTracing:
+      samplingType: const
+      propagationFormat: w3c
+      samplingRate: '1'
+      agentImage: 'icr.io/instana/instana-dp-agent-image:latest'
+      tls:
+        disabled: true
+        skipHostVerify: false
+      env:
+        - name: INSTANA_AGENT_HOST
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: status.hostIP
+    podAutoScaling:
+      method: HPA
+      hpa:
+        minReplicas: 1
+        maxReplicas: 3
+        targetCPUUtilizationPercentage: 50

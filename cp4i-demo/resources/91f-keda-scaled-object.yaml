@@ -1,0 +1,23 @@
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: ace-keda-demo
+  labels:
+    deploymentName: ace-keda-demo
+spec:
+  scaleTargetRef:
+    apiVersion: appconnect.ibm.com/v1beta1
+    kind: IntegrationRuntime
+    name: jgr-mqivt-keda
+  pollingInterval: 10 # Optional. Default: 30 seconds
+  cooldownPeriod: 30 # Optional. Default: 300 seconds
+  maxReplicaCount: 4 # Optional. Default: 100
+  triggers:
+    - type: ibmmq
+      metadata:
+        host: '${QMGR_HOST}/ibmmq/rest/v3/admin/action/qmgr/QMGRRESTAPI/mqsc'
+        queueManager: 'QMGRRESTAPI' # Your queue manager
+        queueName: 'CP4I.DEMO.IN.Q' # Your queue name
+        unsafeSsl: 'true'
+      authenticationRef:
+        name: ace-keda-trigger

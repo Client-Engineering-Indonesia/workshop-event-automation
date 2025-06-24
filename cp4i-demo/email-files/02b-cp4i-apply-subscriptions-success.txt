@@ -1,0 +1,18 @@
+From: CP4I Admin <cp4i-admin@ibm.com>
+To: Mailtrap Inbox <cp4i-user@ibm.com>
+Subject: CP4I Operators have been installed!
+Content-Type: multipart/alternative; boundary="boundary-string"
+
+--boundary-string
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+Content-Disposition: inline
+
+Congrats CP4I Operators have been installed.
+
+Inspect it using the commands provided in the repo.
+Now you can proceed to configure Monitoring.
+
+Good luck! 
+
+--boundary-string

@@ -1,0 +1,39 @@
+apiVersion: appconnect.ibm.com/v1beta1
+kind: IntegrationRuntime
+metadata:
+  name: jgr-multi-bar-mq
+spec:
+  forceFlowsHTTPS:
+    enabled: true
+    secretName: jgr-multi-bar-mq-tls-secret
+  license:
+    accept: true
+    license: L-XRNH-47FJAW
+    use: CloudPakForIntegrationNonProduction
+  template:
+    spec:
+      containers:
+        - name: runtime
+          resources:
+            limits:
+              cpu: 500m
+              memory: 512Mi
+            requests:
+              cpu: 500m
+              memory: 512Mi
+          volumeMounts:
+          - mountPath: /jgr-data
+            name: jgr-volume
+      volumes:
+      - name: jgr-volume
+        persistentVolumeClaim:
+          claimName: jgr-claim-demo 
+  replicas: 1
+  version: '12.0'
+  barURL: 
+    - https://github.com/gomezrjo/cp4idemo/raw/main/barfiles/jgr-cp4i-mqivt.bar
+    - https://github.com/gomezrjo/cp4idemo/raw/main/barfiles/jgr-cp4i-mqws.bar
+  configurations:
+    - github-barauth
+    - ace-qmgr-demo-policy
+    - jgr-default-qmgr

@@ -1,0 +1,68 @@
+apiVersion: eventstreams.ibm.com/v1beta2
+kind: KafkaTopic
+metadata:
+  name: locationtopic
+  labels:
+    eventstreams.ibm.com/cluster: es-demo
+spec:
+  partitions: 1
+  replicas: 3
+  config:
+    retention.ms: '86400000'
+---
+apiVersion: eventstreams.ibm.com/v1beta2
+kind: KafkaTopic
+metadata:
+  name: geocodetopic
+  labels:
+    eventstreams.ibm.com/cluster: es-demo
+spec:
+  partitions: 1
+  replicas: 3
+  config:
+    retention.ms: '86400000'
+---
+apiVersion: eventstreams.ibm.com/v1beta2
+kind: KafkaUser
+metadata:
+  labels:
+    app.kubernetes.io/instance: es-demo
+    eventstreams.ibm.com/cluster: es-demo
+  name: knative-kafka-user
+spec:
+  authentication:
+    type: scram-sha-512
+  authorization:
+    acls:
+      - host: '*'
+        operations:
+          - Read
+          - Write
+          - Create
+        resource:
+          name: '*'
+          patternType: literal
+          type: topic
+      - host: '*'
+        operations:
+          - Read
+          - Alter
+        resource:
+          name: __schema_
+          patternType: prefix
+          type: topic
+      - host: '*'
+        operations:
+          - Read
+        resource:
+          name: '*'
+          patternType: literal
+          type: group
+      - host: '*'
+        operations:
+          - Write
+        resource:
+          name: '*'
+          patternType: literal
+          type: transactionalId
+    type: simple

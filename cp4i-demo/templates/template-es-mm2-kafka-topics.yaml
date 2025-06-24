@@ -1,0 +1,95 @@
+apiVersion: eventstreams.ibm.com/v1beta2
+kind: KafkaTopic
+metadata:
+  name: orders
+  labels:
+    eventstreams.ibm.com/cluster: ${CLUSTER_NAME}
+spec:
+  config:
+    min.insync.replicas: '1'
+    retention.bytes: '100000000'
+  partitions: 3
+  replicas: 3
+  topicName: LH.ORDERS
+
+---
+
+apiVersion: eventstreams.ibm.com/v1beta2
+kind: KafkaTopic
+metadata:
+  name: cancellations
+  labels:
+    eventstreams.ibm.com/cluster: ${CLUSTER_NAME}
+spec:
+  config:
+    min.insync.replicas: '1'
+    retention.bytes: '80000000'
+  partitions: 3
+  replicas: 3
+  topicName: LH.CANCELLATIONS
+
+---
+
+apiVersion: eventstreams.ibm.com/v1beta2
+kind: KafkaTopic
+metadata:
+  name: doors
+  labels:
+    eventstreams.ibm.com/cluster: ${CLUSTER_NAME}
+spec:
+  config:
+    min.insync.replicas: '1'
+    retention.bytes: '90000000'
+  partitions: 1
+  replicas: 1
+  topicName: LH.DOORS
+
+---
+
+apiVersion: eventstreams.ibm.com/v1beta2
+kind: KafkaTopic
+metadata:
+  name: stock
+  labels:
+    eventstreams.ibm.com/cluster: ${CLUSTER_NAME}
+spec:
+  config:
+    min.insync.replicas: '1'
+    retention.bytes: '100000000'
+  partitions: 2
+  replicas: 1
+  topicName: LH.STOCK
+
+---
+
+apiVersion: eventstreams.ibm.com/v1beta2
+kind: KafkaTopic
+metadata:
+  name: customers
+  labels:
+    eventstreams.ibm.com/cluster: ${CLUSTER_NAME}
+spec:
+  config:
+    min.insync.replicas: '1'
+    retention.bytes: '100000000'
+  partitions: 3
+  replicas: 3
+  topicName: LH.CUSTOMERS
+
+---
+
+apiVersion: eventstreams.ibm.com/v1beta2
+kind: KafkaTopic
+metadata:
+  name: sensors
+  labels:
+    eventstreams.ibm.com/cluster: ${CLUSTER_NAME}
+spec:
+  config:
+    min.insync.replicas: '1'
+    retention.bytes: '120000000'
+  partitions: 2
+  replicas: 1
+  topicName: LH.SENSORS
+
+---

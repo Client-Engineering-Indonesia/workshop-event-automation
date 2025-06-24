@@ -1,0 +1,26 @@
+{
+    "type": "user_registry",
+    "api_version": "2.0.0",
+    "name": "authurl",
+    "title": "AuthURL",
+    "integration_url": "${AUTH_INT_URL}",
+    "registry_type": "authurl",
+    "user_managed": false,
+    "user_registry_managed": false,
+    "external_group_mapping_enabled": false,
+    "case_sensitive": false,
+    "email_required": false,
+    "email_unique_if_exist": true,
+    "identity_providers": [
+        {
+            "name": "jgrauthurl",
+            "title": "JGRAuthURL"
+        }
+    ],
+    "configuration": {},
+    "endpoint": {
+        "endpoint": "https://httpbin.org/basic-auth/user/pass"
+    },
+    "owned": true,
+    "org_url": "${PORG_URL}"
+}

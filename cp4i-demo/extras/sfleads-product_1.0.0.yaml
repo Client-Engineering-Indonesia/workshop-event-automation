@@ -1,0 +1,30 @@
+info:
+  version: 1.0.0
+  title: SFLeads Product
+  name: sfleads-product
+gateways:
+  - datapower-api-gateway
+plans:
+  default-plan:
+    title: Default Plan
+    description: Default Plan
+    rate-limits:
+      default:
+        value: 10/1minute
+    apis:
+      sfleads0.0.1: {}
+apis:
+  sfleads0.0.1:
+    $ref: sfleads_0.0.1.yaml
+visibility:
+  view:
+    type: public
+    orgs: []
+    tags: []
+    enabled: true
+  subscribe:
+    type: authenticated
+    orgs: []
+    tags: []
+    enabled: true
+product: 1.0.0

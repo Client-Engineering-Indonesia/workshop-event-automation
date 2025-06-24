@@ -1,0 +1,15 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: mq-uc-argocd
+  namespace: openshift-gitops
+spec:
+  destination:
+    name: ''
+    namespace: mq-argocd
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: queue-manager-deployment/queue-managers
+    repoURL: 'https://github.com/gomezrjo/mq-gitops-demo'
+    targetRevision: main 
+  project: default

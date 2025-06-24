@@ -1,0 +1,45 @@
+asyncapi: 2.1.0
+info:
+  version: 1.0.0
+  title: JGRAsyncAPI
+  x-ibm-name: jgrasyncapi
+channels:
+  cp4i-es-demo-topic:
+    subscribe:
+      message: {}
+servers:
+  cluster:
+    url: ${BOOTSTRAP_VAL}
+    protocol: kafka-secure
+    security:
+      - X-IBM-Client-Id: []
+components:
+  securitySchemes:
+    X-IBM-Client-Id:
+      type: plain
+      description: The credential provided should be in SASL-PLAIN format
+x-ibm-configuration:
+  enforced: true
+  phase: realized
+  gateway: event-gateway
+  assembly:
+    execute:
+      - invoke-kafka:
+          title: invoke-kafka
+          version: 1.0.0
+          bootstrap.servers: ${BOOTSTRAP_VAL}
+          sasl.mechanism: SCRAM-SHA-512
+          security.protocol: SASL_SSL
+          username: ${ES_USER_ID}
+          password: ${ES_USER_PWD}
+          transport.cacert: |
+${ES_CA_CERT_PEM}
+          clusterconfigid: ${GUUID}
+  properties:
+    bootstrapServerAddress:
+      value: >-
+        ${ES_BOOTSTRAP_SERVER}
+  type: asyncapi
+  testable: false
+  cors:
+    enabled: false

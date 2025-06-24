@@ -1,0 +1,89 @@
+{
+    "name": "openldap",
+    "providerId": "ldap",
+    "providerType": "org.keycloak.storage.UserStorageProvider",
+    "parentId": "cloudpak",
+    "config": {
+        "fullSyncPeriod": [
+            "-1"
+        ],
+        "pagination": [
+            "false"
+        ],
+        "startTls": [
+            "false"
+        ],
+        "connectionPooling": [
+            "false"
+        ],
+        "usersDn": [
+            "dc=ibm,dc=com"
+        ],
+        "cachePolicy": [
+            "DEFAULT"
+        ],
+        "useKerberosForPasswordAuthentication": [
+            "false"
+        ],
+        "importEnabled": [
+            "true"
+        ],
+        "enabled": [
+            "true"
+        ],
+        "changedSyncPeriod": [
+            "-1"
+        ],
+        "usernameLDAPAttribute": [
+            "uid"
+        ],
+        "bindDn": [
+            "cn=admin,dc=ibm,dc=com"
+        ],
+        "bindCredential": [
+            "HelloWorld!"
+        ],
+        "vendor": [
+            "other"
+        ],
+        "uuidLDAPAttribute": [
+            "entryUUID"
+        ],
+        "allowKerberosAuthentication": [
+            "false"
+        ],
+        "connectionUrl": [
+            "ldap://openldap.openldap.svc:389"
+        ],
+        "syncRegistrations": [
+            "true"
+        ],
+        "authType": [
+            "simple"
+        ],
+        "krbPrincipalAttribute": [
+            "krb5PrincipalName"
+        ],
+        "useTruststoreSpi": [
+            "always"
+        ],
+        "usePasswordModifyExtendedOp": [
+            "false"
+        ],
+        "trustEmail": [
+            "false"
+        ],
+        "userObjectClasses": [
+            "inetOrgPerson, organizationalPerson"
+        ],
+        "rdnLDAPAttribute": [
+            "uid"
+        ],
+        "editMode": [
+            "READ_ONLY"
+        ],
+        "validatePasswordPolicy": [
+            "false"
+        ]
+    }
+}

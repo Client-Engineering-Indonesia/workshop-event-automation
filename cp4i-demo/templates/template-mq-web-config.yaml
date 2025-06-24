@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mqwebconfig
+data:
+  mqwebuser.xml: |
+    <?xml version="1.0" encoding="UTF-8"?>
+    <server>
+        <featureManager>
+            <feature>appSecurity-2.0</feature>
+            <feature>basicAuthenticationMQ-1.0</feature>
+        </featureManager>
+        <enterpriseApplication id="com.ibm.mq.rest">
+            <application-bnd>
+                <security-role name="MQWebAdmin">
+                    <group name="MQWebAdminGroup" realm="defaultRealm"/>
+                </security-role>
+                <security-role name="MQWebAdminRO">
+                    <user name="mqreader" realm="defaultRealm"/>
+                </security-role>
+                <security-role name="MQWebUser">
+                    <special-subject type="ALL_AUTHENTICATED_USERS"/>
+                </security-role>
+                <security-role name="MFTWebAdmin">
+                    <user name="mftadmin" realm="defaultRealm"/>
+                </security-role>
+                <security-role name="MFTWebAdminRO">
+                    <user name="mftreader" realm="defaultRealm"/>
+                </security-role>			
+            </application-bnd>
+        </enterpriseApplication>
+        <basicRegistry id="basic" realm="defaultRealm">
+            <user name="${MQ_USER_ID}" password="${MQ_USER_PWD}"/>
+            <group name="MQWebAdminGroup">
+                <member name="${MQ_USER_ID}"/>
+            </group>
+        </basicRegistry>           
+    </server>

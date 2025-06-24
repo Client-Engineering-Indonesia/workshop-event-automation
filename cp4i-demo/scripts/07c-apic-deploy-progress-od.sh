@@ -1,0 +1,29 @@
+#!/bin/sh
+# This script requires the oc command being installed in your environment
+# Before running the script you need to set two environment variables called "MAILTRAP_USER" and "MAILTRAP_PWD" with your maintrap info, using these command: 
+# "export MAILTRAP_USER=my-mailtrap-user"
+# "export MAILTRAP_PWD=my-mailtrap-pwd"
+if [ ! command -v oc &> /dev/null ]; then echo "oc could not be found"; exit 1; fi;
+if [ ! -z "$CP4I_TRACING" ]; then echo "CP4I Tracing is NOT enabled, no need to run this script."; exit 1; fi;
+if [ -z "$CP4I_VER" ]; then echo "CP4I_VER not set, it must be provided on the command line."; exit 1; fi;
+if [ -z "$MAILTRAP_USER" ]; then echo "MAILTRAP_USER not set, it must be provided on the command line."; exit 1; fi;
+if [ -z "$MAILTRAP_PWD" ]; then echo "MAILTRAP_PWD not set, it must be provided on the command line."; exit 1; fi;
+echo "CP4I_VER is set to" $CP4I_VER
+if [ "$CP4I_VER" != "2022.2" ]; then echo "This script is for CP4I v2022.2"; exit 1; fi;
+echo "MAILTRAP_USER is set to" $MAILTRAP_USER
+echo "MAILTRAP_PWD is set to" $MAILTRAP_PWD
+read -p "Press <Enter> to execute script..."
+while [ $(oc get apiconnectcluster --no-headers -n tools | awk '{print $3}') != "Ready" ]
+do
+    echo "Checking status..."
+    echo "Sleeping for five minutes..."
+    sleep 300
+done
+echo "API Connect is Ready."
+curl --ssl-reqd \
+     --url "smtp://smtp.mailtrap.io:2525" \
+     --user "${MAILTRAP_USER}:${MAILTRAP_PWD}" \
+     --mail-from cp4i-admin@ibm.com \
+     --mail-rcpt cp4i-user@ibm.com \  
+     --upload-file email-files/07c-apic-deploy-progress-od-success.txt
+echo "Done!"

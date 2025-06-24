@@ -1,0 +1,28 @@
+apiVersion: apiconnect.ibm.com/v1beta1
+kind: APIConnectCluster
+metadata:
+  annotations:
+    apiconnect-operator/backups-not-configured: 'true'
+    apiconnect-operator/cp4i: 'false'
+  name: apim-test
+  labels:
+    app.kubernetes.io/instance: apiconnect
+    app.kubernetes.io/managed-by: ibm-apiconnect
+    app.kubernetes.io/name: apiconnect-small
+  namespace: cp4i
+spec:
+  license:
+    accept: true
+    license: L-HTFS-UAXYM3
+    metric: VIRTUAL_PROCESSOR_CORE
+    use: nonproduction
+  analytics:
+    storage:
+      enabled: true
+      type: shared
+    mtlsValidateClient: true
+  portal:
+    mtlsValidateClient: true
+  profile: n1xc16.m72
+  storageClassName: ocs-storagecluster-ceph-rbd
+  version: 10.0.8.1

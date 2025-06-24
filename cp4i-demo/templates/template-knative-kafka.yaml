@@ -1,0 +1,21 @@
+apiVersion: operator.serverless.openshift.io/v1alpha1
+kind: KnativeKafka
+metadata:
+    name: knative-kafka
+    namespace: knative-eventing
+spec:
+    channel:
+        enabled: true 
+        bootstrapServers: ${ES_BOOTSTRAP_SERVER}
+    source:
+        enabled: true 
+    broker:
+        enabled: true 
+        defaultConfig:
+            bootstrapServers: ${ES_BOOTSTRAP_SERVER}
+            numPartitions: 1
+            replicationFactor: 1
+    sink:
+        enabled: true 
+    logging:
+        level: INFO 

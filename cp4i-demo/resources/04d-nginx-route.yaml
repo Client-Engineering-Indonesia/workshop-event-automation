@@ -1,0 +1,13 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: example
+  namespace: cp4i
+spec:
+  to:
+    kind: Service
+    name: example
+    weight: 100
+  port:
+    targetPort: 8080
+  wildcardPolicy: None
