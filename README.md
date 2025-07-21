@@ -21,7 +21,7 @@ Event Endpoint Management (EEM) is a capability that allows organizations to dis
 ### 2. **Access Event Processing/EP Portal (Lab 3)**
 
 Event Processing is a scalable, low-code event stream processing platform that helps you transform and act on data in real time.
-   - Click event processing(EP) [here](https://ep-demo-ibm-ep-rt-tools.apps.itz-tx7iu2.infra01-lb.tok04.techzone.ibm.com)
+   - Click event processing(EP) [here](https://my-event-processing-ibm-ep-rt-event-automation.apps.687592dfb8103048ba01cdd1.ap1.techzone.ibm.com/login/login?state=AFORt0ue)
    ![alt text](images/lab-1/ep-dashboard.png)
    - Now, you can go to [Lab 3](https://github.com/Client-Engineering-Indonesia/workshop-event-automation/blob/main/lab-3.md)
    ![alt text](images/lab-3/dashboard-ep.png)
